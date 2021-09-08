@@ -1,0 +1,56 @@
+/* Navbar container */
+.navbar {
+    overflow: hidden;
+    background-color: rgb(64, 106, 127);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+/* Links inside the navbar */
+.navbar a {
+position:relative;
+float: right;
+font-size: medium;
+z-index: 2;
+color: white;
+text-align: center;
+padding: 14px 20px;
+text-decoration: none;
+}
+
+#lastlink {
+    padding-right: 5px;
+    margin-right: 5px;
+}
+
+#logo {
+    float: left;
+    outline: 1px solid rgb(255, 255, 255);
+    padding: 5px;
+    margin: 20px;
+    width: 10%;
+    height: auto;
+}
+
+
+/* Add a light background color to navbar links on hover */
+.navbar a:hover {
+background-color: rgb(79, 100, 110);
+}
+
+.navlinks {
+    clear: right;
+}
+
+#pined {
+    font-size: x-small;
+    padding: 10px;
+    outline: 1px solid white;
+    text-align: center;
+    margin: 10px;
+}
+
+#navarrow {
+    height: 1em; 
+    width: auto;
+    vertical-align: top;
+}
