@@ -1,8 +1,14 @@
+/* background of the page*/
+body {
+    background-color: silver;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 /* Navbar container */
 .navbar {
     overflow: hidden;
     background-color: rgb(64, 106, 127);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    /*font-family: Georgia, 'Times New Roman', Times, serif;*/
   }
   
 /* Links inside the navbar */

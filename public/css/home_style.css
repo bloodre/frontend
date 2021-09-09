@@ -1,15 +1,23 @@
-* {box-sizing:border-box}
+/* {box-sizing:border-box}*/
+
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
   position: relative;
   margin: auto;
 }
 
+
 /* Hide the images by default */
 .mySlides {
   display: none;
+  text-align: center;
+}
+
+
+.mySlides img {
+  padding-bottom: 1vw;
+  max-width: 20vw;
 }
 
 /* Next & previous buttons */
@@ -41,54 +49,139 @@
 
 /* Caption text */
 .text {
-  color: #f2f2f2;
-  font-size: 15px;
+  color: #7a7a7a;
+  font-size: 2em;
   padding: 8px 12px;
   position: absolute;
-  bottom: 8px;
   width: 100%;
+  vertical-align: middle;
   text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+  bottom: 50%;
 }
 
 /* The dots/bullets/indicators */
+
 .dot {
   cursor: pointer;
+  position:relative;
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: #717171;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+  background-color: #ffffff;
 }
 
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+
+/* Text*/
+
+h1 {
+  text-align: center;
+  color: black;
+  font-size: 2em;
+  padding-top: 2em;
 }
 
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+#head-description {
+  text-align: center;
+  font-size: 1.5em;
+  color: silver;
 }
 
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+/* CSS code for the search boxes */
+
+#typesearch {
+  margin-left: 1vw;
+  outline: 1px;
+  box-shadow: 2px black;
+}
+
+#makersearch {
+  outline: 1px solid black;
+  box-shadow: 2px black;
+}
+
+#wordsearch {
+  margin-block: 1vw;
+  outline: 1px solid black;
+  box-shadow: 2px black;
+}
+/* Bootstrap Carousel*/
+
+
+.carousel-inner { margin:auto; width: 90%;}
+.carousel-control 			 { width:  0%;}
+.carousel-control.left,
+.carousel-control.right {
+  background-image:none;
+}
+ 
+.carousel-control img {
+  margin-top: 5vw;
+  height: 2em;
+  color: #444;
+}
+
+.carousel-inner a {
+    display:table-cell;
+    height: 180px;
+    width: 200px;
+    vertical-align: middle;
+}
+.carousel-inner img {
+    max-height: 150px;
+    margin: auto auto;
+    max-width: 100%;
+  }
+
+
+@media (max-width: 767px) {
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+      left: 0;
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+  }
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+      left: 0;
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+  }
+
+}
+@media (min-width: 767px) and (max-width: 992px ) {
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+      left: 0;
+      -webkit-transform: translate3d(50%, 0, 0);
+      transform: translate3d(50%, 0, 0);
+  }
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+      left: 0;
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0);
+  }
+}
+@media (min-width: 992px ) {
+  
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+      left: 0;
+      -webkit-transform: translate3d(16.7%, 0, 0);
+      transform: translate3d(16.7%, 0, 0);
+  }
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+      left: 0;
+      -webkit-transform: translate3d(-16.7%, 0, 0);
+      transform: translate3d(-16.7%, 0, 0);
+  }
+  
 }
