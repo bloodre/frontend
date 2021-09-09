@@ -6,16 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="Keywords" content="Cars">
         <meta name="Description" content="Tasting the cars">
-        
+
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="{{ asset('browser-component/bootstrap-3.3.7-dist/css/bootstrap.min.css') }}">      
         <!-- CSS -->
         <link rel="stylesheet" href="{{ asset('css/cssreset-min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
         @yield('css')
 
+ 
+
     </head>
     <body class="yui3-cssreset">
-        <div id="navbar" class="navbar">
+        <!--javascript -->
+        <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+        <script src="{{ asset('browser-component/bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>
+        @yield('js-scripts')
+
+        <header id="navbar" class="navbar">
             <img id="logo" src="{{ asset('img/logo/tc-white-logo.svg')}}">
 
             <div>
@@ -31,15 +40,12 @@
                 
             </div>
 
-        </div>
+    </header>
         
         <div>
-            @yield('CONTENT')
+            @yield('content')
         </div>
 
     </body>
 
-    <!--javascript -->
-    <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
-    @yield('js-scripts')
 </html>
