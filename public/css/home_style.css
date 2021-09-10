@@ -16,35 +16,8 @@
 
 
 .mySlides img {
-  padding-bottom: 1vw;
-  max-width: 20vw;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  max-height: 20vw;
+  max-width: 100%;
 }
 
 /* Caption text */
@@ -60,6 +33,16 @@
 }
 
 /* The dots/bullets/indicators */
+#dots {
+  position: absolute;
+  left: 0;
+  right: 0; 
+  bottom:0px;
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 100%; /* Need a specific value to work */
+}
+
 
 .dot {
   cursor: pointer;
@@ -78,8 +61,12 @@
 }
 
 
-/* Text*/
+/* Text below the top slideshow*/
 
+#carousel-text {
+  padding-bottom: 4vw;
+  background-color: white;
+}
 h1 {
   text-align: center;
   color: black;
@@ -93,52 +80,93 @@ h1 {
   color: silver;
 }
 
-/* CSS code for the search boxes */
 
-#typesearch {
-  margin-left: 1vw;
-  outline: 1px;
-  box-shadow: 2px black;
+/* ------------------Bootstrap Carousel------------*/
+
+/* sliding blocks*/
+
+.block {
+  margin: auto;
+  width: 90%;
+  box-shadow: 0px 2px 1px rgb(168, 168, 168);
+  padding-bottom: 0px;
 }
 
-#makersearch {
-  outline: 1px solid black;
-  box-shadow: 2px black;
+.block img {
+  margin: auto;
+  max-height: 9vw;
+  width: auto;
+  text-align: center;
+
 }
 
-#wordsearch {
-  margin-block: 1vw;
-  outline: 1px solid black;
-  box-shadow: 2px black;
+.flex-container {
+  display:flex;
+  justify-content: space-between;
 }
-/* Bootstrap Carousel*/
+
+.flex-container > p:first-child {
+  margin-left: 3px;
+}
+
+.pin-button {
+  cursor: pointer;
+  display:flex;
+  box-shadow: 0px 2px 1px rgb(168, 168, 168);
+  margin-right: 5px;
+}
+.pin-button p {
+  text-align: center;
+}
+.pin-button img {
+  width: 2em;
+}
+
+.pin-button img{
+  height: 2em;
+  width: auto;
+}
+
+.checked {
+  display:none;
+}
+
+.car-detail {
+  cursor: pointer;
+  outline: 1px solid rgb(59, 59, 59);
+  padding: 1px 4px 1px 4px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.8em;
+  margin-top: 0.8em;
+}
+
+.car-detail img {
+  float: right;
+  height: 1.5em;
+  width: auto;
+  vertical-align: middle;
+}
+/*Carousel*/
 
 
-.carousel-inner { margin:auto; width: 90%;}
-.carousel-control 			 { width:  0%;}
+.carousel-inner { width: 100%;}
+.carousel-control { width:  2%;}
+#myCarousel {width: 100%}
 .carousel-control.left,
 .carousel-control.right {
   background-image:none;
 }
  
 .carousel-control img {
-  margin-top: 5vw;
-  height: 2em;
+  margin-top: 3em;
+  height: 3em;
   color: #444;
 }
-
-.carousel-inner a {
-    display:table-cell;
-    height: 180px;
-    width: 200px;
-    vertical-align: middle;
-}
-.carousel-inner img {
-    max-height: 150px;
-    margin: auto auto;
-    max-width: 100%;
-  }
-
 
 @media (max-width: 767px) {
   .carousel-inner > .item.next,
@@ -185,3 +213,55 @@ h1 {
   }
   
 }
+
+
+/* ------------CSS code for the search boxes -----------*/
+#test {
+  padding-bottom: 7vw;
+}
+
+#search-box {
+  background-color: white;
+}
+
+#typesearch {
+  outline: 1px;
+  box-shadow: 2px black;
+  background-color: rgb(206, 206, 206);
+}
+#typesearch h3{
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  color: #7a7a7a;
+}
+
+.car-row {
+  display: flex;
+  justify-content: space-around;
+}
+.car-type {
+  padding: 2px;
+}
+
+.selected {
+  float:right;
+
+}
+
+.not-selected {
+  display:none;
+  float: right;
+}
+
+
+#makersearch {
+  outline: 1px solid black;
+  box-shadow: 0px 2px 1px rgb(168, 168, 168);
+}
+
+#wordsearch {
+  margin-block: 1vw;
+  outline: 1px solid black;
+  box-shadow: 0px 2px 1px rgb(168, 168, 168);
+}
+
