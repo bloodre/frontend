@@ -12,7 +12,6 @@
         <!-- CSS -->
         <link rel="stylesheet" href="{{ asset('css/cssreset-min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
         @yield('css')
 
  
