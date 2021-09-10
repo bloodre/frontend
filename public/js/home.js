@@ -20,12 +20,26 @@ $(function(){
       next.children(':first-child').clone().appendTo($(this));
     }
   });
+
+  $('.pin-button').click(function(){
+    console.log($(this).attr('name'));
+    $('[name="'+$(this).attr('name')+'"]').children().toggle(100);
+  });
+
+  $('.selected').click(function(){
+    $(this).toggle();
+    $(this).siblings('.not-selected').toggle();
+  });
+  $('.not-selected').click(function(){
+    $(this).toggle();
+    $(this).siblings('.selected').toggle();
+  });
   
     
 })
 
 
-// Thumbnail image controls
+// Slideshow image controls
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
