@@ -2,6 +2,7 @@ var slideIndex = 1;
 
 $(function(){
   showSlides(slideIndex);
+  let width = $(window).width();
 
   //Bootstrap Carousel\\
   $('.carousel[data-type="multi"] .item').each(function(){
@@ -9,9 +10,21 @@ $(function(){
     if (!next.length) {
       next = $(this).siblings(':first');
     }
-    next.children(':first-child').clone().appendTo($(this));
   
-    for (var i=0;i<2;i++) {
+    // We set the number of slide according to the viewport width
+    var n = 3;
+
+    if(767 <= width){
+      next.children(':first-child').clone().appendTo($(this));
+    }
+    if (width < 767) {
+      n = 1; // one slide
+    }
+    else if (767 <= width && width < 992) {
+      n = 2;
+    }
+
+    for (let i=1;i<n;i++) {
       next=next.next();
       if (!next.length) {
         next = $(this).siblings(':first');
@@ -21,11 +34,16 @@ $(function(){
     }
   });
 
+  // pin-button code \\
+
+  $('.pin-button').addClass('pin-button-shadow'); 
+
   $('.pin-button').click(function(){
-    console.log($(this).attr('name'));
-    $('[name="'+$(this).attr('name')+'"]').children().toggle(100);
+    $('[name="'+$(this).attr('name')+'"]').children().toggle();
+    $(this).toggleClass('pin-button-shadow');
   });
 
+  // Checkbox for search boxes \\
   $('.selected').click(function(){
     $(this).toggle();
     $(this).siblings('.not-selected').toggle();
@@ -34,6 +52,34 @@ $(function(){
     $(this).toggle();
     $(this).siblings('.selected').toggle();
   });
+
+  // For changing the color of text within the AT/MT toggle switch
+  $('.switch-button').click(function(){
+    $(this).toggleClass('active');
+    console.log($(this).children('[name="AT"]'));
+    $(this).children('[name="AT"]').toggleClass('active');
+  });
+
+  // Scroll to top
+  $('#scrolltop').click(function() {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 800);
+    return false;
+  });
+  
+  //Align vertically the search bar
+  if(992<width){
+    let new_margin = $('#typesearch').height() - $('#makersearch').height() - $('#wordsearch').height();
+    if(0<new_margin){
+      $('#wordsearch').css('margin-top',new_margin+'px');
+    }
+    else{
+      let margin_top = parseFloat($('#wordsearch').css('margin-top').split('p')[0]);
+      new_margin = margin_top+$('#makersearch').height() + $('#wordsearch').height();
+      $('#typesearch').height(new_margin+'px');
+    }
+  }
   
     
 })
