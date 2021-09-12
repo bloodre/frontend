@@ -23,7 +23,7 @@
         <script src="{{ asset('browser-component/bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>
         @yield('js-scripts')
 
-        <header id="navbar" class="navbar">
+        <div id="navbar" class="navbar">
             <img id="logo" src="{{ asset('img/logo/tc-white-logo.svg')}}">
 
             <div>
@@ -35,11 +35,11 @@
                 <a href="{{ route('home') }}">NEWS</a>
                 <a href="{{ route('home') }}">PINED</a>
                 <a href="{{ route('home') }}">SEARCH</a>
-                <a href="{{ route('home') }}">HOME</a>
+                <a style="padding-left:0;"href="{{ route('home') }}">HOME</a>
                 
             </div>
 
-    </header>
+        </div>
         
         <div>
             @yield('content')
