@@ -91,10 +91,11 @@ h1 {
   box-shadow: 0px 1px 3px rgb(168, 168, 168);
   padding-bottom: 0px;
   text-align: center;
+  font-size: 0.8em;
 }
 
 .block img {
-  max-height: 9em;
+  max-height: 10em;
   width: auto;
   text-align: center;
 
@@ -433,11 +434,12 @@ h1 {
   padding-bottom: 1vh;
 }
 
-#maker-engine-select {
+#maker-engine-text {
   color: #a8a4a4;
   font-size: 2.5vh;
   padding: 1vh 1vw;
 }
+
 
 #maker-transmission {
   color: #a8a4a4;
@@ -534,10 +536,21 @@ h1 {
 
 
 @media (min-width: 430px) and (max-width: 992px ) {
+  #typesearch h3 {
+    font-size: 2em;
+  }
+
   .select {
     width: 18vw;
-    height: 3vh;
-    font-size: 2vw;
+    height: 2em;
+    font-size: 0.8em;
+  }
+
+  .option-head {
+    font-size: 2em;
+  }
+  .type-select {
+    font-size: 1.3em;
   }
 
   .switch-button {
@@ -564,9 +577,23 @@ h1 {
   #makersearch {
     margin-top: 2vh;
   }
+  #makersearch h3 {
+    font-size: 2em;
+  }
+  #maker-engine-text {
+    font-size: 1em;
+    padding-right: 2vw;
+  }
+  #maker-engine-select {
+    font-size: 1em;
+  }
 
   #wordsearch {
     font-size: 5vw;
+  }
+  #search-bar {
+    height: 1.2em;
+
   }
 
 }
@@ -726,10 +753,18 @@ h1 {
   .news-text {
     font-size: 3vw;
   }
+  .news-block img{
+    height: 2em;
+    margin-top: 1em;
+  }
+  .vertical-bar {
+    height: 4em;
+
+  }
 
   #info-left {
     font-size: 1.5vw;
-    line-height: 1.2vh;
+    line-height: 1.2em;
   }
   #info-right {
     font-size: 1.5vw;
@@ -738,11 +773,11 @@ h1 {
     margin-right: 5vw;
   }
   #middle-break {
-    padding: 5vh 2px;
-    margin: 1vh 0 3vw 0;
+    padding: 2em 2px;
+    margin: 1vh 0 0.5em 0;
   }
   #bottom-logo {
-    height: 4vh;
+    height: 3em;
     margin-top: 1vh;
   }
 }
