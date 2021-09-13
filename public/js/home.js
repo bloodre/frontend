@@ -1,37 +1,19 @@
 var slideIndex = 1;
 
 $(function(){
+
   showSlides(slideIndex);
   let width = $(window).width();
 
+
   //Bootstrap Carousel\\
-  $('.carousel[data-type="multi"] .item').each(function(){
-    var next = $(this).next();
-    if (!next.length) {
-      next = $(this).siblings(':first');
-    }
-  
-    // We set the number of slide according to the viewport width
-    var n = 3;
+  displayCarousel(width);
+  fixCarouselWidth();
+  fitHeight(width);
 
-    if(767 <= width){
-      next.children(':first-child').clone().appendTo($(this));
-    }
-    if (width < 767) {
-      n = 1; // one slide
-    }
-    else if (767 <= width && width < 992) {
-      n = 2;
-    }
-
-    for (let i=1;i<n;i++) {
-      next=next.next();
-      if (!next.length) {
-        next = $(this).siblings(':first');
-      }
-      
-      next.children(':first-child').clone().appendTo($(this));
-    }
+  //Remove previous carousel and create new one
+  $(window).bind('orientationchange', function (event) {
+    location.reload(true);
   });
 
   // pin-button code \\
@@ -68,20 +50,6 @@ $(function(){
     return false;
   });
   
-  //Align vertically the search bar
-  if(992<width){
-    let new_margin = $('#typesearch').height() - $('#makersearch').height() - $('#wordsearch').height();
-    if(0<new_margin){
-      $('#wordsearch').css('margin-top',new_margin+'px');
-    }
-    else{
-      let margin_top = parseFloat($('#wordsearch').css('margin-top').split('p')[0]);
-      new_margin = margin_top+$('#makersearch').height() + $('#wordsearch').height();
-      $('#typesearch').height(new_margin+'px');
-    }
-  }
-  
-    
 })
 
 
@@ -107,6 +75,81 @@ function showSlides(n) {
     slides.eq(slideIndex-1).css('opacity',0.4);
     slides.eq(slideIndex-1).fadeTo(1500,1);
     dots.eq(slideIndex-1).addClass('active');
+}
+
+function displayCarousel(width){
+  $('.carousel[data-type="multi"] .item').each(function(){
+    var next = $(this).next();
+    if (!next.length) {
+      next = $(this).siblings(':first');
+    }
+
+    // We set the number of slide according to the viewport width
+    var n = 3;
+
+    if(767 <= width){
+      next.children(':first-child').clone().appendTo($(this));
+    }
+    if (width < 767) {
+      n = 1; // one slide
+    }
+    else if (767 <= width && width < 992) {
+      n = 2;
+    }
+
+    for (let i=1;i<n;i++) {
+      next=next.next();
+      if (!next.length) {
+        next = $(this).siblings(':first');
+      }
+      
+      next.children(':first-child').clone().appendTo($(this));
+    }
+  });
+}
+
+
+
+// Align the search boxes vertically
+function fitHeight(width){
+  if(992<width){
+    let new_margin = $('#typesearch').height() - $('#makersearch').height() - $('#wordsearch').height();
+    if(0<new_margin){
+      $('#wordsearch').css('margin-top',new_margin+'px');
+    }
+    else{
+      let margin_top = parseFloat($('#wordsearch').css('margin-top').split('p')[0]);
+      new_margin = margin_top+$('#makersearch').height() + $('#wordsearch').height();
+      $('#typesearch').height(new_margin+'px');    
+    }
+  }
+}
+
+function fixCarouselWidth(){
+  let block_width = $('.block').eq(0).width();
+  let max_overflow_img = null;
+  let overflow_block_count = 0;
+
+  $('.block').each(function(){
+    if(block_width < $(this).find('img').eq(0).width()){
+      overflow_block_count += 1;
+      if(overflow_block_count==1){
+        max_overflow_img = $(this).find('img').eq(0);
+      }
+      else if(max_overflow_img.width() < $(this).find('img').eq(0).width()){
+        max_overflow_img = $(this).find('img').eq(0);
+      }
+    }
+  });
+  if(max_overflow_img != null){
+    max_overflow_img.width(block_width+'px');
+    let new_height = max_overflow_img.height();
+
+    $('.block').each(function(){
+      $(this).find('img').eq(0).css('max-height',new_height+'px');
+      $(this).find('img').eq(0).css('width','auto');
+    });
+  }
 }
 
 
