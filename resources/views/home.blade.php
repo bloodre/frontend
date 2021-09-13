@@ -351,8 +351,8 @@
                     <span>Search options</span>
                 </div>
                 <!-- Engine select row -->
-                <span id="maker-engine-select">Engine</span>
-                <select class="select">
+                <span id="maker-engine-text">Engine</span>
+                <select id="maker-engine-select" class="select">
                     <option selected>No preference</option>
                     <option value="1">power1</option>
                     <option value="2">power2</option>
